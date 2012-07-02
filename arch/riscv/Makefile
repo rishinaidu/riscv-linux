@@ -17,7 +17,8 @@
 # Based on:
 # arch/score/Makefile
 
-KBUILD_DEFCONFIG 	:= riscv_defconfig
+KBUILD_DEFCONFIG    := riscv_defconfig
+CROSS_COMPILE       := riscv-
 
 LDFLAGS         :=
 OBJCOPYFLAGS    := -O binary
@@ -37,13 +38,9 @@ endif
 
 KBUILD_CFLAGS += -Werror -Wall
 
-head-y := \
-	arch/riscv/kernel/head.o \
-	arch/riscv/kernel/init_task.o
+head-y := arch/riscv/kernel/head.o
 
-core-y += \
-	arch/riscv/kernel/ \
-	arch/riscv/mm/ \
+core-y += arch/riscv/kernel/ arch/riscv/mm/
 
 libs-y += arch/riscv/lib/
 

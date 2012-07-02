@@ -1,9 +1,10 @@
 #
-# Makefile for the linux kernel.
+# Makefile for the Linux/RISC-V kernel
 #
 
-extra-y	:= head.o init_task.o vmlinux.lds
+extra-y	:= head.o vmlinux.lds
 
-obj-y	:= early_printk.o irq.o process.o ptrace.o reset.o setup.o time.o traps.o
+obj-y	:= irq.o process.o ptrace.o reset.o setup.o time.o traps.o
 
-clean:
+obj-$(CONFIG_EARLY_PRINTK)      early_printk.o
+
